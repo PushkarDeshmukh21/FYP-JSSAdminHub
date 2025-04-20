@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications</title>
+  <link rel="stylesheet" href="/styles/publications.css">
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #b3d1cb, #c1d9e5);
+      margin: 0;
+      padding: 0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 800px;
+    }
+
+    .header h2 {
+      color: #007bff;
+      font-size: 28px;
+    }
+
+    .publications-container {
+      width: 80%;
+      max-width: 800px;
+      margin-top: 30px;
+    }
+
+    .publication-card {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .publication-card h3 {
+      font-size: 20px;
+      color: #007bff;
+      margin: 0;
+    }
+
+    /* Form Styling */
+    form {
+      width: 80%;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      margin-top: 20px;
+      display: none;
+      position: relative;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    form.show {
+      display: block;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    form.hide {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      font-size: 20px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: #ff0000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h2>Publications</h2>
+    <p>View and manage all publications below.</p>
+  </div>
+
+  <div class="publications-container">
+    <% if (publications.length > 0) { %>
+      <% publications.forEach(publication => { %>
+        <div class="publication-card">
+          <h3>Publication: <%= publication.conferenceOrJournalName %></h3>
+          <p><strong>Conference Type:</strong> <%= publication.conference %></p>
+          <p><strong>Faculty Name:</strong> <%= publication.facultyName %></p>
+          <p><strong>ISBN:</strong> <%= publication.isbn %></p>
+          <p><strong>Issue:</strong> <%= publication.issue %></p>
+          <p><strong>Volume:</strong> <%= publication.volume %></p>
+          <p><strong>Year:</strong> <%= publication.year %></p>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No publications available yet.</p>
+    <% } %>
+  </div>
+
+  <div class="add-new-section">
+    <button id="showFormBtn">Add New Publication</button>
+  </div>
+
+  <form id="newPublicationForm" action="/publications/addPublication" method="POST" class="hide">
+    <span class="close-btn" id="closeFormBtn">&times;</span>
+
+    <label for="conference">Conference Type:</label>
+    <select name="conference" id="conference" required>
+      <option value="Conference Paper">Conference Paper</option>
+      <option value="Journal Paper">Journal Paper</option>
+    </select>
+
+    <label for="facultyName">Faculty Name:</label>
+    <input type="text" name="facultyName" required>
+
+    <label for="conferenceOrJournalName">Conference/Journal Name:</label>
+    <input type="text" name="conferenceOrJournalName" required>
+
+    <label for="isbn">ISBN:</label>
+    <input type="text" name="isbn" required>
+
+    <label for="issue">Issue:</label>
+    <input type="text" name="issue" required>
+
+    <label for="volume">Volume:</label>
+    <input type="text" name="volume" required>
+
+    <label for="year">Year:</label>
+    <input type="number" name="year" id="year" min="1900" max="<%= new Date().getFullYear() %>" required>
+
+    <button type="submit">Submit Publication</button>
+  </form>
+
+  <script>
+    const showFormBtn = document.getElementById('showFormBtn');
+    const closeFormBtn = document.getElementById('closeFormBtn');
+    const newPublicationForm = document.getElementById('newPublicationForm');
+
+    showFormBtn.addEventListener('click', () => {
+      newPublicationForm.classList.remove('hide');
+      newPublicationForm.classList.add('show');
+      newPublicationForm.style.display = 'block';
+      newPublicationForm.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    closeFormBtn.addEventListener('click', () => {
+      newPublicationForm.classList.remove('show');
+      newPublicationForm.classList.add('hide');
+      setTimeout(() => {
+        newPublicationForm.style.display = 'none';
+      }, 300);
+    });
+
+    document.getElementById('newPublicationForm').addEventListener('submit', async function(event) {
+      event.preventDefault(); // Prevent default form submission behavior
+
+      const formData = new FormData(this);
+
+      try {
+        const response = await fetch('/publications/addPublication', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to add publication');
+        }
+
+        await response.json();
+        window.location.reload();
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    });
+  </script>
+
+</body>
+
+</html>

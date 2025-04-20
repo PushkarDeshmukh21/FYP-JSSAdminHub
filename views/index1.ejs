@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSS AdminHub - Homepage</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH2N2MRJ3jnbz3djlw5NfLe5hFLlRff3KR8fiJfpKmLgMVTpBRjCuJtP8h05ABnKfnqfD7Zg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Styling -->
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f5f7;
+      color: #333;
+    }
+
+    .header {
+      background-color: #003865;
+      color: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-card i {
+      font-size: 3rem;
+      color: #003865;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      margin: 0.5rem 0;
+      font-size: 1.5rem;
+      color: #003865;
+    }
+
+    .feature-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      padding: 1rem;
+      background-color: #003865;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Welcome to JSS AdminHub</h1>
+    <p>Streamlining academic management for faculties and administrators</p>
+  </header>
+
+  <div class="container">
+    <div class="features-grid">
+      <!-- Feature 1: Publications -->
+      <div class="feature-card">
+        <i class="fas fa-book"></i>
+        <h3>Publications</h3>
+        <p>Manage and review all faculty publications, journals, and conferences.</p>
+      </div>
+
+      <!-- Feature 2: FDP Workshop -->
+      <div class="feature-card">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <h3>FDP Workshop</h3>
+        <p>Track faculty participation in Faculty Development Programs.</p>
+      </div>
+
+      <!-- Feature 3: KDP Workshop -->
+      <div class="feature-card">
+        <i class="fas fa-people-arrows"></i>
+        <h3>KDP Workshop</h3>
+        <p>Monitor Knowledge Development Programs organized by faculty.</p>
+      </div>
+
+      <!-- Feature 4: SDP Workshop -->
+      <div class="feature-card">
+        <i class="fas fa-users"></i>
+        <h3>SDP Workshop</h3>
+        <p>Manage Student Development Programs and their details.</p>
+      </div>
+
+      <!-- Feature 5: Patents -->
+      <div class="feature-card">
+        <i class="fas fa-file-signature"></i>
+        <h3>Patents</h3>
+        <p>View and organize patents filed by the faculty.</p>
+      </div>
+
+      <!-- Feature 6: Marks Management -->
+      <div class="feature-card">
+        <i class="fas fa-chart-bar"></i>
+        <h3>Marks Management</h3>
+        <p>Streamline semester-wise marks entry and analysis.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 JSS AdminHub | Designed for CSE Department</p>
+  </footer>
+</body>
+</html>

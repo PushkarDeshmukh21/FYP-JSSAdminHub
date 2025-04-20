@@ -1,0 +1,227 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JSS Science and Technology University</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            width: 100%;
+        }
+        header {
+            background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+            padding: 0.1rem 0;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-container h1 {
+            font-size: 3rem;
+            color: white;
+        }
+        main {
+            position: relative;
+            background: -webkit-linear-gradient(left, #cdcfc0, #d5d5d0, #adada9, #868681);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 75%;
+        }
+
+        footer {
+            background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+            color: white;
+            padding: 0.5rem 0;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .footer-container p {
+            margin: 0;
+            color: white;
+        }
+        .footer-container .social-icons a {
+            color: white;
+            margin-left: 1rem;
+        }
+        .copyright {
+            background: -webkit-linear-gradient(left, #e45705, #d45309, #d56916, #cc7427);
+            height: 30px;
+            color: white;
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+
+        .copyright p{
+            color: white;
+        }
+
+        .container {
+            max-width: 800px;
+            background: #f1ebe5;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 5%;
+        }
+
+        h2 {
+            color: #214368;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            text-align: center;
+        }
+
+        form {
+            margin-bottom: 30px;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            display: inline-block;
+            background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .class-card {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .class-card:hover {
+            transform: scale(1.03);
+            background-color: #e9ecef;
+        }
+
+        .class-card h3 {
+            font-size: 20px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .class-card p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            background-color: #c82333;
+            transform: translateY(-3px);
+        }
+
+    </style>
+    </head>
+    <body class="bg-white">
+        <header>
+            <div class="header-container">
+                    <h1>JSS Science and Technology University, Mysuru</h1>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <h2>Welcome, <%= professorName %>!</h2>
+                <p>Username: <%= userName %></p>
+                <form action="/addClass" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="professorUserName" value="<%= userName %>">
+                    <input type="text" name="className" placeholder="Class Name" required>
+                    <input type="file" name="excelFile" accept=".xlsx, .xls" required>
+                    <button type="submit" class="btn-primary">Add Class</button>
+                </form>
+        
+                <div class="cards-container">
+                    <% classDetails.forEach(classDetail => { %>
+                        <a href="/chooseEvents/<%= classDetail.className %>">
+                            <div class="class-card">
+                                <h3><%= classDetail.className %></h3>
+                                <p>Number of Students: <%= classDetail.numberOfStudents %></p>
+                                <form action="/deleteClass" method="POST" class="delete-class-form">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="className" value="<%= classDetail.className %>">
+                                    <input type="hidden" name="professorUserName" value="<%= userName %>">
+                                    <button type="submit" class="delete-btn">Delete Class</button>
+                                </form>
+                            </div>
+                        </a>
+                    <% }); %>
+                </div>
+            </div>                    
+      </main>
+      <footer>
+        <div class="footer-container">
+            <p>JSS Technical Institutions Campus, JSS Science and Technology University, Mysuru, Karnataka - 570006</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/JSSSTUNIV/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/jssstunivofficial/"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/jssstuniv"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+    <footer class="copyright">
+        <p>Copyright © JSS STU 2023. All rights reserved.</p>
+    </footer>
+</body>
+</html>

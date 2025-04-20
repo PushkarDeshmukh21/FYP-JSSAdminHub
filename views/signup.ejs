@@ -1,0 +1,318 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JSS Science and Technology University</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            width: 100%;
+        }
+        header {
+            background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+            padding: 0.1rem 0;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-container h1 {
+            font-size: 3rem;
+            color: white;
+        }
+        main {
+            position: relative;
+            height: 75%;
+        }
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: -webkit-linear-gradient(left, #cdcfc0, #d5d5d0, #adada9, #868681);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+        .overlay h2 {
+            font-size: 4rem;
+            color: #2e3748;
+            margin-bottom: 0.5rem;
+            padding-left: 4rem;
+        }
+        .overlay p {
+            font-size: 1.5rem;
+            color: #2e3748;
+            max-width: 600px;
+            padding-left: 4rem;
+        }
+        .wrapper{
+            position: absolute;
+            top: 5%;
+            right: 20%;
+            overflow: hidden;
+            width: 400px;
+            padding: 1rem;
+            background: #f1ebe5;
+            border-radius: 15px;
+            box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+        }
+        .wrapper .title-text{
+            display: flex;
+            width: 200%;
+        }
+        .wrapper .title{
+            width: 50%;
+            font-size: 35px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+        }
+        .wrapper .slide-controls{
+            position: relative;
+            display: flex;
+            height: 50px;
+            width: 100%;
+            overflow: hidden;
+            margin: 30px 0 10px 0;
+            justify-content: space-between;
+            border: 1px solid lightgrey;
+            border-radius: 15px;
+        }
+        .slide-controls .slide{
+            height: 100%;
+            width: 100%;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            text-align: center;
+            line-height: 48px;
+            cursor: pointer;
+            z-index: 1;
+            transition: all 0.6s ease;
+        }
+        .slide-controls label.signup{
+            color: #000;
+        }
+        .slide-controls .slider-tab{
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            left: 0;
+            z-index: 0;
+            border-radius: 15px;
+            background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+            transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+        }
+        input[type="radio"]{
+            display: none;
+        }
+        #signup:checked ~ .slider-tab{
+            left: 50%;
+        }
+        #signup:checked ~ label.signup{
+            color: #fff;
+            cursor: default;
+            user-select: none;
+        }
+        #signup:checked ~ label.login{
+            color: #000;
+        }
+        #login:checked ~ label.signup{
+            color: #000;
+        }
+        #login:checked ~ label.login{
+            cursor: default;
+            user-select: none;
+        }
+        .wrapper .form-container{
+            width: 100%;
+            overflow: hidden;
+        }
+        .form-container .form-inner{
+            display: flex;
+            width: 200%;
+        }
+        .form-container .form-inner form{
+            width: 50%;
+            transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+        }
+        .form-inner form .field{
+            height: 50px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .form-inner form .field input{
+            height: 100%;
+            width: 100%;
+            outline: none;
+            padding-left: 15px;
+            border-radius: 15px;
+            border: 1px solid lightgrey;
+            border-bottom-width: 2px;
+            font-size: 17px;
+            transition: all 0.3s ease;
+        }
+        .form-inner form .field input:focus{
+            border-color: #1a75ff;
+        }
+        .form-inner form .field input::placeholder{
+            color: #999;
+            transition: all 0.3s ease;
+        }
+        form .field input:focus::placeholder{
+            color: #1a75ff;
+        }
+        .form-inner form .pass-link{
+            margin-top: 5px;
+        }
+        .form-inner form .signup-link{
+            text-align: center;
+            margin-top: 30px;
+        }
+        .form-inner form .pass-link a,
+        .form-inner form .signup-link a{
+            color: #1a75ff;
+            text-decoration: none;
+        }
+        .form-inner form .pass-link a:hover,
+        .form-inner form .signup-link a:hover{
+            text-decoration: underline;
+        }
+        form .btn{
+            height: 50px;
+            width: 100%;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        form .btn .btn-layer{
+            height: 100%;
+            width: 300%;
+            position: absolute;
+            left: -100%;
+            background: -webkit-linear-gradient(right, #003366, #004080, #0059b3, #0073e6);
+            border-radius: 15px;
+            transition: all 0.4s ease;
+        }
+        form .btn:hover .btn-layer{
+            left: 0;
+        }
+        form .btn input[type="submit"]{
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+            position: relative;
+            background: none;
+            border: none;
+            color: #fff;
+            padding-left: 0;
+            border-radius: 15px;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        footer {
+            background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+            color: white;
+            padding: 0.5rem 0;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .footer-container p {
+            margin: 0;
+        }
+        .footer-container .social-icons a {
+            color: white;
+            margin-left: 1rem;
+        }
+        .copyright {
+            background: -webkit-linear-gradient(left, #e45705, #d45309, #d56916, #cc7427);
+            height: 30px;
+            color: white;
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <header>
+        <div class="header-container">
+                <h1>JSS Science and Technology University, Mysuru</h1>
+        </div>
+    </header>
+    <main>
+        <div class="overlay">
+            <h2>JSS Admin Hub</h2>
+            <p>Empowering JSS Science and Technology University with seamless administrative solutions. Join us in shaping a brighter future for administration through innovation and efficiency.</p>
+        </div>
+        <div class="wrapper">
+            <div class="title-text">
+                <div class="title login">Sign Up</div>
+            </div>
+            <div class="from-container">
+                <div class="form-inner">
+                    
+                    <form action="/signup" method="POST">
+                        <div class="field">
+                            <input type="text" id="professorName" name="professorName" placeholder="enter your name" required>
+                        </div>
+                        <div class="field">
+                            <input type="text" id="userName" name="userName" placeholder="enter username" required>
+                        </div>
+                        <div class="field">
+                            <input type="password" id="password" name="password" placeholder="set password" required>
+                        </div>
+                        <input type="hidden" id="class" name="class" value="[]">
+                        <div class="field">
+                            <select id="department" name="department" required>
+                                <option value="" disabled selected>Select Department</option>
+                                <option value="CSE">CSE</option>
+                                <option value="ECE">ECE</option>
+                                <option value="Civil">Civil</option>
+                                <option value="Mech">Mech</option>
+                                <option value="EEE">EEE</option>
+                                <option value="IP">IP</option>
+                                <option value="Env">Env</option>
+                                <option value="BT">BT</option>
+                            </select>
+                        </div>
+                        
+                        <div class="field btn">
+                            <div class="btn-layer"></div>
+                            <input type="submit" value="Sign Up">
+                        </div>
+                        
+                        <div class="signup-link">Already have an account? <a href="/login">Login here</a></div>
+                    </form>                
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>JSS Technical Institutions Campus, JSS Science and Technology University, Mysuru, Karnataka - 570006</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/JSSSTUNIV/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/jssstunivofficial/"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/jssstuniv"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+    <footer class="copyright">
+        <p>Copyright © JSS STU 2023. All rights reserved.</p>
+    </footer>
+</body>
+</html>

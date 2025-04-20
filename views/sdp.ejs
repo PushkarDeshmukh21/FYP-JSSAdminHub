@@ -1,0 +1,398 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JSS Science and Technology University</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+            padding: 0.1rem 0;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-container h1 {
+            font-size: 3rem;
+            color: white;
+        }
+        
+        footer {
+            background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+            color: white;
+            padding: 0.5rem 0;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .footer-container p {
+            margin: 0;
+        }
+        .footer-container .social-icons a {
+            color: white;
+            margin-left: 1rem;
+        }
+        .copyright {
+            background: -webkit-linear-gradient(left, #e45705, #d45309, #d56916, #cc7427);
+            height: 30px;
+            color: white;
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+
+        .heading {
+      text-align: center;
+      padding: 10px;
+      background: rgb(235, 224, 210);
+      border-radius: 10px;
+      margin-top: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 800px;
+    }
+
+    .heading h1 {
+      color: #284e77;
+      font-size: 30x;
+      margin-bottom: 10px;
+    }
+
+    .heading p {
+      font-size: 20px;
+      color: #666;
+      margin: 5px 0;
+    }
+
+    .sdp-container {
+      width: 80%;
+      max-width: 800px;
+      margin-top: 30px;
+    }
+
+    .sdp-card {
+      background: #f1ebe5;
+      border: 1px solid #f0f0f0;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .sdp-card h3 {
+      font-size: 20px;
+      color: #284e77;
+      margin: 0;
+    }
+
+    .sdp-card p {
+      margin: 5px 0;
+      color: #666;
+    }
+
+    .add-new-section {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .add-new-section button {
+      font-size: 18px;
+      color: #fff;
+      background: -webkit-linear-gradient(right, #003366, #004080, #0059b3, #0073e6);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-new-section button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Form Styling */
+    main {
+    
+    background: -webkit-linear-gradient(left, #cdcfc0, #d5d5d0, #adada9, #868681);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto; /* Adjust height dynamically */
+    padding-bottom: 20px; /* Add some padding for better spacing */
+    flex-grow: 1;
+}
+form {
+    width: 80%;
+    max-width: 800px;
+    background: #f1ebe5;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Ensure proper spacing above */
+    display: none; /* Initially hidden */
+    position: relative;
+}
+
+
+    form label {
+      font-size: 16px;
+      color: #333;
+      display: block;
+      margin-top: 10px;
+    }
+
+    form input[type="text"],
+    form input[type="number"],
+    form input[type="file"],
+    form select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      background: -webkit-linear-gradient(right, #003366, #004080, #0059b3, #0073e6);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Close Button */
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: #ff0000;
+    }
+    /* Styling for Filter Container */
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  padding: 10px;
+  background: #f1ebe5;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px;
+}
+
+/* Modern Search Input */
+#searchInput {
+  flex-grow: 1;
+  padding: 10px;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+}
+
+#searchInput:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 8px rgba(0, 91, 187, 0.5);
+}
+    </style>
+    </head>
+    <body class="bg-white">
+        <header>
+            <div class="header-container">
+                    <h1>JSS Science and Technology University, Mysuru</h1>
+            </div>
+        </header>
+        <main>
+          <div class="heading">
+            <h1>SDP Workshop</h1>
+            <p>View and manage all SDP workshops below.</p>
+          </div>
+
+          <div class="filter-container">
+            <input type="text" id="searchInput" placeholder="Search by name or year..." onkeyup="filterSdp()">
+            <label>
+                <input type="checkbox" id="showAllCheckbox" unchecked onchange="toggleShowAll()"> Show All
+            </label>
+          </div>
+          
+          
+          <div class="sdp-container">
+            <% if (sdpWorkshops.length > 0) { %>
+              <% sdpWorkshops.forEach(sdp => { %>
+                <div class="sdp-card">
+                  <h3>Event: <%= sdp.eventType %></h3>
+                  <p><strong>Start Date:</strong> <%= new Date(sdp.startDate).toDateString() %></p>
+                  <p><strong>End Date:</strong> <%= new Date(sdp.endDate).toDateString() %></p>
+                  <p><strong>For Whom:</strong> <%= sdp.forWhom %></p>
+                  <p><strong>Conducted/Attended:</strong> <%= sdp.conductedOrAttended %></p>
+                  <p><strong>Report:</strong>
+                    <% if (sdp.report && sdp.report.data) { %>
+                      <a href="/sdp/download/<%= sdp._id %>" target="_blank">Download</a>
+                    <% } else { %>
+                      No report available
+                    <% } %>
+                  </p>
+                </div>
+              <% }); %>
+            <% } else { %>
+              <p>No SDP workshops available yet.</p>
+            <% } %>
+          </div>
+        
+          <div class="add-new-section">
+            <button id="showFormBtn">Add New SDP Workshop</button>
+          </div>
+        
+          <form id="newSdpForm" action="/sdp/addSdp" method="POST" enctype="multipart/form-data" class="hide">
+            <span class="close-btn" id="closeFormBtn">&times;</span>
+        
+            <label for="eventType">Event Type:</label>
+            <input type="text" name="eventType" id="eventType" required>
+        
+            <label for="startDate">Start Date:</label>
+            <input type="date" name="startDate" id="startDate" required>
+        
+            <label for="endDate">End Date:</label>
+            <input type="date" name="endDate" id="endDate" required>
+        
+            <label for="forWhom">For Whom:</label>
+            <select name="forWhom" id="forWhom" required>
+              <option value="Students">Students</option>
+              <option value="Faculties">Faculties</option>
+            </select>
+        
+            <label for="conductedOrAttended">Conducted/Attended:</label>
+            <select name="conductedOrAttended" id="conductedOrAttended" required>
+              <option value="Conducted">Conducted</option>
+              <option value="Attended">Attended</option>
+            </select>
+        
+            <label for="report">Upload Report:</label>
+            <input type="file" name="report" id="report" required>
+        
+            <button type="submit">Submit SDP</button>
+          </form>
+        
+          <script>
+            const showFormBtn = document.getElementById('showFormBtn');
+            const closeFormBtn = document.getElementById('closeFormBtn');
+            const newSdpForm = document.getElementById('newSdpForm');
+        
+            showFormBtn.addEventListener('click', () => {
+              newSdpForm.classList.remove('hide');
+              newSdpForm.classList.add('show');
+              newSdpForm.style.display = 'block';
+              newSdpForm.scrollIntoView({ behavior: 'smooth' });
+            });
+        
+            closeFormBtn.addEventListener('click', () => {
+              newSdpForm.classList.remove('show');
+              newSdpForm.classList.add('hide');
+              setTimeout(() => {
+                newSdpForm.style.display = 'none';
+              }, 300);
+            });
+          </script>
+        
+        <script>
+            document.getElementById('newSdpForm').addEventListener('submit', async function(event) {
+                event.preventDefault(); // Prevent default form submission behavior
+          
+                const formData = new FormData(this); // Collect form data
+          
+                try {
+                    const response = await fetch('/sdp/addSdp', {
+                        method: 'POST',
+                        body: formData
+                    });
+          
+                    if (!response.ok) {
+                        throw new Error('Failed to add SDP workshop');
+                    }
+          
+                    // Wait for response
+                    await response.json();
+          
+                    // Refresh the page to fetch updated data from MongoDB
+                    window.location.reload(); 
+          
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            });
+          </script>
+          <script>
+            function filterSdp() {
+                let searchInput = document.getElementById("searchInput").value.toLowerCase();
+                let showAllChecked = document.getElementById("showAllCheckbox").checked;
+                let sdpCards = document.querySelectorAll(".sdp-card");
+          
+                sdpCards.forEach(card => {
+                    let name = card.getAttribute("data-name");
+                    let year = card.getAttribute("data-year");
+          
+                    if (showAllChecked || name.includes(searchInput) || year.includes(searchInput)) {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            }
+          
+            function toggleShowAll() {
+                document.getElementById("searchInput").value = ""; // Clear search input when toggling Show All
+                filterSdp();
+            }
+          </script>
+
+      </main>
+      <footer>
+        <div class="footer-container">
+            <p>JSS Technical Institutions Campus, JSS Science and Technology University, Mysuru, Karnataka - 570006</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/JSSSTUNIV/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/jssstunivofficial/"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/jssstuniv"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+    <footer class="copyright">
+        <p>Copyright © JSS STU 2023. All rights reserved.</p>
+    </footer>
+</body>
+</html>

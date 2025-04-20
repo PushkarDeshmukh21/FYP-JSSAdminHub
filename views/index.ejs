@@ -1,0 +1,195 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JSS Science and Technology University</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            width: 100%;
+        }
+        header {
+            background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+            padding: 0.1rem 0;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-container h1 {
+            font-size: 3rem;
+            color: white;
+        }
+        main {
+            position: relative;
+            height: 75%;
+            background: -webkit-linear-gradient(left, #cdcfc0, #d5d5d0, #adada9, #868681);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer {
+            background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+            color: white;
+            padding: 0.5rem 0;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .footer-container p {
+            margin: 0;
+        }
+        .footer-container .social-icons a {
+            color: white;
+            margin-left: 1rem;
+        }
+        .copyright {
+            background: -webkit-linear-gradient(left, #e45705, #d45309, #d56916, #cc7427);
+            height: 30px;
+            color: white;
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+
+        .heading {
+      text-align: center;
+      padding: 10px;
+      background: rgb(235, 224, 210);
+      border-radius: 10px;
+      margin-top: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 800px;
+    }
+
+    .heading h1 {
+      color: #284e77;
+      font-size: 30x;
+      margin-bottom: 10px;
+    }
+
+    .heading p {
+      font-size: 20px;
+      color: #666;
+      margin: 5px 0;
+    }
+
+    /* Options Container */
+    .options-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      width: 90%;
+      max-width: 1000px;
+      margin-top: 30px;
+    }
+
+    /* Individual Feature Card */
+    .feature-card {
+      cursor: pointer;
+      padding: 20px;
+      margin: 10px;
+      background: #f1ebe5;
+      border: 1px solid #f0f0f0;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-card:hover {
+      background-color: #00c9b7;
+      transform: translateY(-5px);
+    }
+
+    .feature-card i {
+      font-size: 3rem;
+      color: #007bff;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 22px;
+      color: #333;
+      margin: 0;
+    }
+    </style>
+    </head>
+    <body class="bg-white">
+        <header>
+            <div class="header-container">
+                    <h1>JSS Science and Technology University, Mysuru</h1>
+            </div>
+        </header>
+        <main>
+          <div class="heading">
+            <h1>Welcome to JSS AdminHub</h1>
+            <p>Click on a feature below to proceed.</p>
+          </div>
+
+          <div class="options-container">
+            <!-- Feature 1: Publications -->
+            <div class="feature-card" onclick="window.location.href='/publications';">
+              <i class="fas fa-book"></i>
+              <h3>Publications</h3>
+            </div>
+        
+            <!-- Feature 2: FDP Workshop -->
+            <div class="feature-card" onclick="window.location.href='/fdp';">
+              <i class="fas fa-chalkboard-teacher"></i>
+              <h3>FDP Workshop</h3>
+            </div>
+        
+            <!-- Feature 3: KDP Workshop -->
+            <div class="feature-card" onclick="window.location.href='/kdp';">
+              <i class="fas fa-people-arrows"></i>
+              <h3>KDP Workshop</h3>
+            </div>
+        
+            <!-- Feature 4: SDP Workshop -->
+            <div class="feature-card" onclick="window.location.href='/sdp';">
+              <i class="fas fa-users"></i>
+              <h3>SDP Workshop</h3>
+            </div>
+        
+            <!-- Feature 5: Patents -->
+            <div class="feature-card" onclick="window.location.href='/patents';">
+              <i class="fas fa-file-signature"></i>
+              <h3>Patents</h3>
+            </div>
+        
+            <!-- Feature 6: Marks Management -->
+            <div class="feature-card" onclick="window.location.href='/homepage';">
+              <i class="fas fa-chart-bar"></i>
+              <h3>Marks Management</h3>
+            </div>
+          </div>
+      </main>
+      <footer>
+        <div class="footer-container">
+            <p>JSS Technical Institutions Campus, JSS Science and Technology University, Mysuru, Karnataka - 570006</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/JSSSTUNIV/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/jssstunivofficial/"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/jssstuniv"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+    <footer class="copyright">
+        <p>Copyright © JSS STU 2023. All rights reserved.</p>
+    </footer>
+</body>
+</html>
